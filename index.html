@@ -18,38 +18,45 @@
             background-color: #183c63;
             color: #FFFFFF;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 0 auto 16px auto;
             padding: 16px;
             border: 5px solid #4a90e2;
+            box-sizing: border-box;
         }
 
         main {
             background-color: #FFFFFF;
             color: #183c63;
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             padding: 16px;
+            
+            /* Exibe os posts deitados (lado a lado na horizontal) */
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            box-sizing: border-box;
         }
 
         article {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #dcdcdc;
+            text-align: center;
+            flex: 1; /* Faz os três posts dividirem o espaço igualmente */
+            
+            padding: 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
             color: #222222;
-        }
-
-        article:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+            box-sizing: border-box;
         }
 
         article h2 {
             color: #183c63;
-            margin-top: 0;
+            margin-top: 12px;
+            font-size: 1.2rem;
         }
 
         img {
@@ -62,14 +69,22 @@
         .artigo-autor {
             font-weight: bold;
             color: #183c63;
+            margin: 8px 0;
+        }
+
+        .botoes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-top: auto; /* Empurra os botões para o fim do card */
+            padding-top: 12px;
         }
 
         button {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-top: 8px;
-            margin-right: 4px;
             padding: 6px 12px;
             border: 1px solid #4a90e2;
             border-radius: 20px;
@@ -82,6 +97,13 @@
 
         button:hover {
             background-color: #e8f1f5;
+        }
+
+        /* Responsividade: em telas pequenas (celulares), volta a ficar na vertical */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -98,6 +120,8 @@
                 <h2>Meu primeiro post</h2>
                 <p class="artigo-autor">Por: Lorena Silva Araujo</p>
                 <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+            </div>
+            <div class="botoes-container">
                 <button>❤️ <span>0</span></button>
                 <button>👍 <span>0</span></button>
                 <button>👎 <span>0</span></button>
@@ -110,6 +134,8 @@
                 <h2>O primeiro mouse não era de plástico</h2>
                 <p class="artigo-autor">Por: Lorena Silva Araujo</p>
                 <p>Antes do desing ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído de madeira! Foi criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
+            </div>
+            <div class="botoes-container">
                 <button>❤️ <span>0</span></button>
                 <button>👍 <span>0</span></button>
                 <button>👎 <span>0</span></button>
@@ -122,6 +148,8 @@
                 <h2>A primeira webcam servia para vigiar café</h2>
                 <p class="artigo-autor">Por: Lorena Silva Araujo</p>
                 <p>Em 1991, pesquisadores da Universidade de Cambridge criaram a primeira webcam para não perderem tempo indo até a cozinha e econtrando a cafeteira vazia. Eles monitoravam o nível do café em tempo real no seus monitores.</p>
+            </div>
+            <div class="botoes-container">
                 <button>❤️ <span>0</span></button>
                 <button>👍 <span>0</span></button>
                 <button>👎 <span>0</span></button>
