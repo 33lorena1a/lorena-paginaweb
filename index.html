@@ -67,6 +67,7 @@
                 background-color: #f9f9f9;
                 cursor: pointer;
                 font-size: 14px;
+                transition: background-color 0.2s;
             }
 
             button:hover {
@@ -83,7 +84,7 @@
         <main>
             <!-- Primeiro Post -->
             <article>
-                <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpadas de ideia. Cores em tons de azul e branco.">
+                <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação">
                 <div>
                     <h2>Meu primeiro post</h2>
                     <p class="artigo-autor">Por: Lorena Silva Araujo</p>
@@ -93,13 +94,13 @@
                 </div>
             </article>
 
-            <!-- O primeiro mouse não era de plástico -->
+            <!-- Segundo Post -->
             <article>
-                <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpadas de ideia. Cores em tons de azul e branco.">
+                <img src="imagem-blog.png" alt="Logotipo conceitual de tecnologia e educação">
                 <div>
                     <h2>Meu segundo post</h2>
                     <p class="artigo-autor">Por: Lorena Silva Araujo</p>
-                    <p>Antes do desing ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído de madeira! Foi criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
+                    <p>Antes do design ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído de madeira! Foi criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
                     <button>❤️ <span>0</span></button>
                     <button>👍 <span>0</span></button>
                 </div>
@@ -112,20 +113,18 @@
             botoes.forEach(function (botao) {
                 let curtiu = false;
 
-                botao.addEventListener("click", botaoClicado);
+                botao.addEventListener("click", function () {
+                    let span = botao.querySelector("span");
+                    let contador = Number(span.textContent);
 
-                function botaoClicado() {
-                    console.log("fui clicado");
-                    let texto = botao.querySelector("span");
-
-                    if (curtiu === false) {
-                        texto.textContent++;
+                    if (!curtiu) {
+                        span.textContent = contador + 1;
                         curtiu = true;
                     } else {
-                        texto.textContent--;
+                        span.textContent = contador - 1;
                         curtiu = false;
                     }
-                }
+                });
             });
         </script>
     </body>
