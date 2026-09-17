@@ -5,7 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Tech</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            color: #222222;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        header {
+            background-color: #183c63;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 16px auto;
+            padding: 16px;
+            border: 5px solid #4a90e2;
+            box-sizing: border-box;
+        }
+
+        main {
+            background-color: #FFFFFF;
+            color: #183c63;
+            max-width: 1000px;
+            margin: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            box-sizing: border-box;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            padding: 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            color: #222222;
+            box-sizing: border-box;
+        }
+
+        article h2 {
+            color: #183c63;
+            margin-top: 12px;
+            font-size: 1.2rem;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .artigo-autor {
+            font-weight: bold;
+            color: #183c63;
+            margin: 8px 0;
+        }
+
+        .botoes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border: 1px solid #4a90e2;
+            border-radius: 20px;
+            background-color: #ffffff;
+            color: #183c63;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #e8f1f5;
+        }
+
+        button.ativo {
+            background-color: #4a90e2;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            header, main {
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+
+            main {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -13,6 +119,7 @@
         <h1>Meu blog tech</h1>
         <p>Vou compartilhar conhecimentos sobre tecnologia e programação.</p>
     </header>
+
     <main>
         <article>
             <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
@@ -60,7 +167,28 @@
         </article>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        const botoes = document.querySelectorAll("button");
+
+        botoes.forEach(function (botao) {
+            let curtiu = false;
+            
+            botao.addEventListener("click", function () {
+                let texto = botao.querySelector("span");
+                let contador = Number(texto.textContent);
+
+                if (!curtiu) {
+                    texto.textContent = contador + 1;
+                    curtiu = true;
+                    botao.classList.add("ativo");
+                } else {
+                    texto.textContent = contador - 1;
+                    curtiu = false;
+                    botao.classList.remove("ativo");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
