@@ -12,14 +12,13 @@
             font-family: sans-serif;
             margin: 0;
             padding: 20px 0;
-            /* Ajustando a largura total da página conforme a aula */
-            max-width: 100vw;
         }
 
         header {
             background-color: #183c63;
             color: #FFFFFF;
             text-align: center;
+            max-width: 1000px;
             margin: 0 auto 16px auto;
             padding: 16px;
             border: 5px solid #4a90e2;
@@ -29,12 +28,13 @@
         main {
             background-color: #FFFFFF;
             color: #183c63;
+            max-width: 1000px;
+            margin: auto;
             padding: 16px;
-            box-sizing: border-box;
-            /* Organizando os posts com Flexbox e quebras automáticas */
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row;
             gap: 16px;
+            box-sizing: border-box;
         }
 
         article {
@@ -42,16 +42,12 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            justify-content: center; /* Centraliza o conteúdo verticalmente */
+            flex: 1;
             padding: 16px;
-            border: 1px solid #183C63; /* Borda azul da aula */
-            margin: 16px; /* Espaço fora do card */
-            gap: 16px; /* Espaço entre os elementos internos */
+            border: 1px solid #dcdcdc;
             border-radius: 8px;
             color: #222222;
             box-sizing: border-box;
-            /* Definindo o tamanho dos cards (tamanho ideal de 25%) */
-            flex: 1 1 25%;
         }
 
         article h2 {
