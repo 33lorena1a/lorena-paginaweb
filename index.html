@@ -12,13 +12,14 @@
             font-family: sans-serif;
             margin: 0;
             padding: 20px 0;
+            /* Ajustando a largura total da página conforme a aula */
+            max-width: 100vw;
         }
 
         header {
             background-color: #183c63;
             color: #FFFFFF;
             text-align: center;
-            max-width: 1000px;
             margin: 0 auto 16px auto;
             padding: 16px;
             border: 5px solid #4a90e2;
@@ -28,13 +29,12 @@
         main {
             background-color: #FFFFFF;
             color: #183c63;
-            max-width: 1000px;
-            margin: auto;
             padding: 16px;
-            display: flex;
-            flex-direction: row;
-            gap: 16px;
             box-sizing: border-box;
+            /* Organizando os posts com Flexbox e quebras automáticas */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         article {
@@ -42,12 +42,16 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            flex: 1;
+            justify-content: center; /* Centraliza o conteúdo verticalmente */
             padding: 16px;
-            border: 1px solid #dcdcdc;
+            border: 1px solid #183C63; /* Borda azul da aula */
+            margin: 16px; /* Espaço fora do card */
+            gap: 16px; /* Espaço entre os elementos internos */
             border-radius: 8px;
             color: #222222;
             box-sizing: border-box;
+            /* Definindo o tamanho dos cards (tamanho ideal de 25%) */
+            flex: 1 1 25%;
         }
 
         article h2 {
@@ -143,62 +147,7 @@
                 <button aria-label="Comentários">💬 <span>0</span></button>
             </div>
         </article>
-
-        <article>
-            <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
-            <div>
-                <h2>O primeiro mouse não era de plástico</h2>
-                <p class="artigo-autor">Por: Lorena Silva Araujo</p>
-                <p>Antes do design ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído de madeira!<br><br>Foi criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
-                <p class="artigo-fonte">Fonte: Computer History Museum</p>
-            </div>
-            <div class="botoes-container">
-                <button aria-label="Amei">❤️ <span>0</span></button>
-                <button aria-label="Gostei">👍 <span>0</span></button>
-                <button aria-label="Não gostei">👎 <span>0</span></button>
-                <button aria-label="Comentários">💬 <span>0</span></button>
-            </div>
-        </article>
-
-        <article>
-            <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
-            <div>
-                <h2>A primeira webcam servia para vigiar café</h2>
-                <p class="artigo-autor">Por: Lorena Silva Araujo</p>
-                <p>Em 1991, pesquisadores da Universidade de Cambridge criaram a primeira webcam para não perderem tempo indo até a cozinha e encontrando a cafeteira vazia.<br><br>Eles monitoravam o nível do café em tempo real nos seus monitores.</p>
-                <p class="artigo-fonte">Fonte: The National Museum of Computing</p>
-            </div>
-            <div class="botoes-container">
-                <button aria-label="Amei">❤️ <span>0</span></button>
-                <button aria-label="Gostei">👍 <span>0</span></button>
-                <button aria-label="Não gostei">👎 <span>0</span></button>
-                <button aria-label="Comentários">💬 <span>0</span></button>
-            </div>
-        </article>
     </main>
-
-    <script>
-        const botoes = document.querySelectorAll("button");
-
-        botoes.forEach(function (botao) {
-            let curtiu = false;
-            
-            botao.addEventListener("click", function () {
-                let texto = botao.querySelector("span");
-                let contador = Number(texto.textContent);
-
-                if (!curtiu) {
-                    texto.textContent = contador + 1;
-                    curtiu = true;
-                    botao.classList.add("ativo");
-                } else {
-                    texto.textContent = contador - 1;
-                    curtiu = false;
-                    botao.classList.remove("ativo");
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
