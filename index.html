@@ -36,7 +36,7 @@
 
         header {
             background-color: var(--cor-primaria);
-            color: #191bb5;
+            color: #FFFFFF;
             text-align: center;
             max-width: 1000px;
             margin: 0 auto 16px auto;
@@ -129,6 +129,19 @@
             color: #ffffff;
         }
 
+        /* Estilo do botão flutuante para alternar o tema */
+        .btn-tema-escuro {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            font-size: 32px;
+            padding: 12px;
+            background-color: var(--cor-primaria);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
         /* Ajustes específicos para o Modo Escuro */
         .tema-escuro a {
             color: var(--cor-secundaria);
@@ -155,7 +168,7 @@
     </style>
 </head>
 
-<body class="tema-escuro">
+<body>
     <header>
         <h1>Meu blog tech</h1>
         <p>Vou compartilhar conhecimentos sobre tecnologia e programação.</p>
@@ -209,10 +222,13 @@
                 <button aria-label="Comentários">💬 <span>0</span></button>
             </div>
         </article>
+
+        <button class="btn-tema-escuro">🌙</button>
     </main>
 
     <script>
-        const botoes = document.querySelectorAll("button");
+        // Lógica de curtidas
+        const botoes = document.querySelectorAll(".botoes-container button");
 
         botoes.forEach(function (botao) {
             let curtiu = false;
@@ -232,6 +248,21 @@
                 }
             });
         });
+
+        // Lógica do botão de alternância do modo escuro
+        const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+        btnTemaEscuro.addEventListener("click", mudaTema);
+
+        function mudaTema() {
+            const corpoPagina = document.body;
+
+            if (corpoPagina.classList.contains("tema-escuro")) {
+                corpoPagina.classList.remove("tema-escuro");
+            } else {
+                corpoPagina.classList.add("tema-escuro");
+            }
+        }
     </script>
 </body>
 
