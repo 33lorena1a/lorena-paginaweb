@@ -16,6 +16,11 @@
             --fonte-texto: 'Segoe UI', sans-serif;
         }
 
+        /* Aplica a transição suave para mudança de tema em todos os elementos */
+        * {
+            transition: background-color 0.3s ease;
+        }
+
         .tema-escuro {
             --cor-primaria: #c9e3ff;
             --cor-fundo: #151428;
@@ -65,10 +70,11 @@
             justify-content: center;
             flex: 1 1 25%;
             padding: 16px;
-            border: 1px solid var(--cor-primaria);
             border-radius: 8px;
             color: var(--cor-texto);
             box-sizing: border-box;
+            /* Sombra suave no lugar da borda simples */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         article h2 {
@@ -153,6 +159,11 @@
 
         .tema-escuro header p {
             color: var(--cor-contraste);
+        }
+
+        /* Cor de destaque do botão flutuante no Modo Escuro */
+        .tema-escuro .btn-tema-escuro {
+            background-color: var(--cor-secundaria);
         }
 
         @media (max-width: 768px) {
